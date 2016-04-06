@@ -18,10 +18,8 @@
 	    function endChildren() { 
 	        echo "</tr>" . "\n";
 	    } 
-	} 
-
-
-
+	}
+	
 	try {
 		require('db.php');
 	    $stmt = $conn->prepare("SELECT id, firstname, lastname, position FROM user"); 

@@ -23,11 +23,11 @@
         }
     }
 
-    echo '<form method="POST" action="">';
-    echo 'Firstname: <input type="text" name="firstname"><br />';
-    echo 'Lastname: <input type="text" name="lastname"><br />';
-    echo 'Position: <input type="text" name="position"><br />';
-	echo '<input type="submit" value="Do-It"></form>';
+    echo '<form class="col-md-4" method="POST" action="">';
+    echo '<label for="firstname">Firstname:</label> <input type="text" class="form-control" name="firstname"><br />';
+    echo '<label for="firstname">Lastname:</label> <input type="text" class="form-control" name="lastname"><br />';
+    echo '<label for="firstname">Position:</label> <input type="text" class="form-control" name="position"><br />';
+	echo '<input type="submit" value="Submit"></form>';
 
 
 

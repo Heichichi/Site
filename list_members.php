@@ -1,6 +1,13 @@
 <?php
+	
+	//Delete button for testing
+	echo '<input class="button" type="submit" name="delete" value="delete">';
 	echo "<div class='table-responsive'><table class='table table-striped'>";
 	echo "<tr><th>Delete</th><th>Id</th><th>Firstname</th><th>Lastname</th><th>Position</th></tr>";
+
+
+	
+
 
 	class TableRows extends RecursiveIteratorIterator { 
 	    function __construct($it) { 
@@ -12,23 +19,25 @@
 	    }
 
 	    function beginChildren() { 
-	        echo "<tr>"; 
+	        echo "<tr><td>X</td>"; 
 	    } 
 
 	    function endChildren() { 
 	        echo "</tr>" . "\n";
 	    } 
 	}
-	
+
 	try {
 		require('db.php');
 	    $stmt = $conn->prepare("SELECT id, firstname, lastname, position FROM user"); 
 	    $stmt->execute();
 
 	    // set the resulting array to associative
-	    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+	    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
 	    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) { 
 	        echo $v;
+
 	    }
 	}
 	catch(PDOException $e) {

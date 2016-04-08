@@ -19,10 +19,8 @@
           <?php require('submit_form.php') ?>
 
           <h2 class="sub-header">List Members</h2>
-          <?php require('ajax_delete.php'); ?>
 
           <?php require('list_members.php') ?>
-
 		 </div>
       </div>
     </div>

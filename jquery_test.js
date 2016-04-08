@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('.button').click(function(){
+    $('.delete').click(function(){
         var clickBtnValue = $(this).val();
         var ajaxurl = 'ajax_delete.php',
         data =  {'action': clickBtnValue};

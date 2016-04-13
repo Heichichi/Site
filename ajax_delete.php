@@ -16,7 +16,5 @@ function delete($id) {
     $conn->exec($sql_delete);
     echo "Record deleted successfully";
 
-
-
-
+}
 ?>

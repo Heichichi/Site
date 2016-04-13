@@ -1,3 +1,5 @@
+//When delete button is clicked run ajax_delete.php
+
 $(document).ready(function(){
     $('.delete').click(function(){
         var clickBtnValue = $(this).val();

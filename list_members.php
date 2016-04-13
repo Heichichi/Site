@@ -8,7 +8,7 @@
 	    //Retrieve ID for users
 	    $sql_id = "SELECT id, firstname, lastname, position FROM user";
 	    foreach($conn->query($sql_id) as $row) {
-	    	echo '<tr><td><input class="delete" type="submit" name=' . $row['id'] . ' value="X">' . '</td><td>' . $row['id'] . '</td><td>' . $row['firstname'] . '</td><td>' . $row['lastname'] . '</td><td>' . $row['position'] . "</td></tr>";
+	    	echo '<tr><td><input class="delete" type="submit" name=' . $row['id'] . ' value=' . $row['id'] . '>' . '</td><td>' . $row['id'] . '</td><td>' . $row['firstname'] . '</td><td>' . $row['lastname'] . '</td><td>' . $row['position'] . "</td></tr>";
 	    }
 	}
 	catch(PDOException $e) {

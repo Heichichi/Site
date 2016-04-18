@@ -2,14 +2,36 @@
 
 $(document).ready(function(){
     $('.delete').click(function(){
+    	if(confirm("This action will delete the member. Are you sure?")){
         var clickBtnValue = $(this).val();
         var ajaxurl = 'ajax_delete.php',
-        data =  {'action': clickBtnValue};
+        data =  {'delete': clickBtnValue};
         $.post(ajaxurl, data, function (response) {
             // Response div goes here.
-            alert("Delete performed successfully");
-
+            window.location.reload();
         });
+        }
+        else {
+        	preventDefault();
+        }
+    });
+
+});
+
+$(document).ready(function(){
+    $('.delete_all').click(function(){
+    	if(confirm("This action will delete all members. Are you sure?")){
+        var clickBtnValue = $(this).val();
+        var ajaxurl = 'ajax_delete.php',
+        data =  {'delete_all': clickBtnValue};
+        $.post(ajaxurl, data, function (response) {
+            // Response div goes here.
+            window.location.reload();
+        });
+    	}
+        else {
+        	preventDefault();
+        }
     });
 
 });

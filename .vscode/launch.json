@@ -1,0 +1,15 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Listen for XDebug",
+			"type": "php",
+			"log": true,
+			"serverSourceRoot": "C:\\xampp\\htdocs\\Site",
+  			"localSourceRoot": "${workspaceRoot}",
+			"request": "launch",
+			"port": 9000
+
+		}
+	]
+}

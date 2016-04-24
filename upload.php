@@ -4,6 +4,7 @@ $error_message_upload = "";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
@@ -15,11 +16,44 @@ if(isset($_POST["submit"])) {
         $uploadOk = 0;
     }
 }
-// Check if file already exists
-if (file_exists($target_file)) {
-    $error_message_upload = "Sorry, file already exists.";
-    $uploadOk = 0;
+
+// Check if file exists and rename if true
+
+if(file_exists($target_file))
+{     
+    $actual_name = basename($_FILES["fileToUpload"]["name"]);
+    $name_no_ext = pathinfo($actual_name,PATHINFO_FILENAME);
+    
+    $i = 0;
+    
+    while (file_exists($target_file)) {
+        switch ($target_file) {
+            case $target_dir . $actual_name:
+                $actual_name = (string)$name_no_ext . "_" .$i;
+                $name = $actual_name.".".$imageFileType;
+                $i++;
+                break;
+            
+            case $name:
+                $actual_name = (string)$original_name . "_" .$i;
+                $name = $actual_name.".".$imageFileType;
+                $i++;
+                break;
+            }
+        break;
+    }
+    
+    
+    
+    while ($target_file == $target_dir . $actual_name ) {
+        $actual_name = (string)$original_name . "_" .$i;
+        $name = $actual_name.".".$imageFileType;
+        $i++;
+    }
+          
+    
 }
+
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 500000) {
      $error_message_upload = "Sorry, your file is too large.";
@@ -32,7 +66,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
+elseif ($uploadOk == 0) {
      $error_message_upload = "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {

@@ -1,0 +1,13 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    //-------- PHP Configuration options --------
+
+	// Whether php validation is enabled or not.
+	"php.validate.enable": true,
+
+	// Points to the php executable.
+	"php.validate.executablePath": "C:/xampp/php/php.exe",
+
+	// Whether the linter is run on save or on type.
+	"php.validate.run": "onType"
+}

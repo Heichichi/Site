@@ -11,7 +11,7 @@
          else {
             try {        
                 require('db.php');
-                $STH = $conn->prepare("INSERT INTO user (firstname,lastname,position) VALUES (:firstname,:lastname,:position)");
+                $STH = $conn->prepare("INSERT INTO user (firstname,lastname,position,fileToUpload) VALUES (:firstname,:lastname,:position,:fileToUpload)");
 
                 $STH->bindParam(':firstname', $_POST['firstname']);
                 $STH->bindParam(':lastname', $_POST['lastname']);

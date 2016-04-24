@@ -6,7 +6,6 @@
     </head>
 
     <body>
-
         <?php require('navigation.php'); ?>
 
         <div class="container-fluid">

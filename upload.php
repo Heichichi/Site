@@ -27,31 +27,10 @@ if(file_exists($target_file))
     $i = 0;
     
     while (file_exists($target_file)) {
-        switch ($target_file) {
-            case $target_dir . $actual_name:
-                $actual_name = (string)$name_no_ext . "_" .$i;
-                $name = $actual_name.".".$imageFileType;
-                $i++;
-                break;
-            
-            case $name:
-                $actual_name = (string)$original_name . "_" .$i;
-                $name = $actual_name.".".$imageFileType;
-                $i++;
-                break;
-            }
-        break;
-    }
-    
-    
-    
-    while ($target_file == $target_dir . $actual_name ) {
-        $actual_name = (string)$original_name . "_" .$i;
-        $name = $actual_name.".".$imageFileType;
+        $actual_name = (string)$name_no_ext . "_" .$i;
+        $target_file = $target_dir . $actual_name.".".$imageFileType;
         $i++;
-    }
-          
-    
+    }    
 }
 
 // Check file size
